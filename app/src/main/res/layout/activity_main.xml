@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.aloogn.view.MainActivity"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:id="@+id/main_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_above="@id/main_radioGroup">
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/main_radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:padding="5dp">
+
+        <RadioButton
+            android:id="@+id/main_rb_homePage"
+            android:checked="true"
+            android:text="@string/homepage"
+            android:drawableTop="@drawable/main_shouye_radiobutton"
+            style="@style/RadioButton"/>
+
+        <RadioButton
+            android:id="@+id/main_rb_find"
+            android:text="@string/find"
+            android:drawableTop="@drawable/main_faxian_radiobutton"
+            style="@style/RadioButton"/>
+
+        <RadioButton
+            android:id="@+id/main_rb_my"
+            android:text="@string/my"
+            android:drawableTop="@drawable/main_my_radiobutton"
+            style="@style/RadioButton"/>
+
+    </RadioGroup>
+
+</RelativeLayout>
