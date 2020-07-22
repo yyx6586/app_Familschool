@@ -1,5 +1,6 @@
 package com.aloogn.view;
 
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -95,10 +96,29 @@ public class ResetPasswordActivity extends AppCompatActivity implements View.OnC
 
                         try{
                             JSONObject jsonObject = new JSONObject(str);
-                            int code = (int)jsonObject.get("code");
                             String msg  = (String)jsonObject.get("msg");
-                        }catch (Exception e){
+                            if(msg.equals("密码修改成功")){
+                                Looper.prepare();
+                                Toast.makeText(ResetPasswordActivity.this,"密码修改成功",Toast.LENGTH_LONG).show();
+                                Looper.loop();
+                                return;
+                            }
 
+//                            if(msg.equals("密码修改失败")){
+//                                Looper.prepare();
+//                                Toast.makeText(ResetPasswordActivity.this,"密码修改失败",Toast.LENGTH_LONG).show();
+//                                Looper.loop();
+//                                return;
+//                            }
+
+                            if(msg.equals("该用户不存在")){
+                                Looper.prepare();
+                                Toast.makeText(ResetPasswordActivity.this,"该用户不存在",Toast.LENGTH_LONG).show();
+                                Looper.loop();
+                                return;
+                            }
+                        }catch (Exception e){
+                            e.printStackTrace();
                         }
                     }
                 });
