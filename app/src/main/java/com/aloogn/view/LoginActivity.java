@@ -6,9 +6,11 @@ import android.os.AsyncTask;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,14 +30,17 @@ import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.MediaType;
 import okhttp3.Response;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
     private Context context;
-    Button login_btn_login;
-    TextView login_tv_forget;
-    EditText login_et_account;
-    EditText login_et_password;
+    private Button login_btn_login;
+    private TextView login_tv_forget,login_tv;
+    private EditText login_et_account, login_et_password;
+    private ProgressBar progressBar;
+
+
 //    private Handler mHandler = new Handler(){
 //        @Override
 //        public void handleMessage(Message msg) {
@@ -48,11 +53,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //        }
 //    };
 
-    private class MyTask extends AsyncTask<String, Integer, Void> {
+    private class MyTask extends AsyncTask<String, Integer, String> {
 
         private String account;
         private String password;
-
         public MyTask(String account, String password) {
             this.account = account;
             this.password = password;
@@ -60,7 +64,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
         @Override
-        protected Void doInBackground(String... strings) {
+        protected void onPreExecute() {
+            login_tv.setText("登录中......");
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
 
 //            Call call = OkHttpUtilZXL.getInstance().post("loginServlet", new OkHttpUtilZXL.PostFormBuilder() {
 //                @Override
@@ -76,7 +86,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             map.put("account",account);
             map.put("password",MD5Util.md5(password));
 
-            Call call = OkHttpUtil.getInstance().post("loginServlet",map);
+            String token = null;
+
+            Call call = OkHttpUtil.getInstance().post("user/signIn",map,token);
 
             call.enqueue(new Callback() {
                 @Override
@@ -90,20 +102,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
                     try {
                         JSONObject jsonObject = new JSONObject(str);
-                        int code = (int) jsonObject.get("code");
-                        int role = (int) jsonObject.optInt("data");
-                        String msg = (String) jsonObject.get("msg");
+                        int code = jsonObject.optInt("code");
+                        String data = jsonObject.optString("data");
+                        String msg = jsonObject.optString("msg");
+
+                        JSONObject object = new JSONObject(data);
+                        int role = object.optInt("role");
+                        String token = object.optString("token");
+                        String name = object.optString("name");
 
                         if(code == 1){
-                            ((MyApplication)getApplication()).putSharedPreference("user","account");
-                            ((MyApplication)getApplication()).putSharedPreference("user","password");
-                            ((MyApplication)getApplication()).putSharedPreference("user",role);
-
-//                            Integer s = (Integer) ((MyApplication)getApplication()).getSharedPreference("user",role);
-//                            Log.d("s", String.valueOf(s));
+                            ((MyApplication)getApplication()).put("account",account);
+                            ((MyApplication)getApplication()).put("password",MD5Util.md5(password));
+                            ((MyApplication)getApplication()).put("role",role);
+                            ((MyApplication)getApplication()).put("token",token);
 
                             if (role == 1){
-
 
                                 Intent intent = new Intent(LoginActivity.this,TeacherMainActivity.class);
                                 startActivity(intent);
@@ -117,17 +131,76 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             }
                         }else {
                             Looper.prepare();
-                            MyToastUtil.message(msg);
-//                            Toast.makeText(LoginActivity.this,msg,Toast.LENGTH_LONG).show();
+                            MyToastUtil.showLongToast(LoginActivity.this,msg);
                             Looper.loop();
                         }
 
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+
+//                    try {
+//                        JSONObject jsonObject = new JSONObject(str);
+//                        int code = (int) jsonObject.get("code");
+//                        int role = (int) jsonObject.optInt("data");
+//                        String msg = (String) jsonObject.get("msg");
+//
+//                        if(code == 1){
+//                            ((MyApplication)getApplication()).put("account",account);
+//                            ((MyApplication)getApplication()).put("password",MD5Util.md5(password));
+//                            ((MyApplication)getApplication()).put("role",role);
+//
+////                            String s1 = ((MyApplication)getApplication()).getSharedPreference("account","account").toString();
+////                            String s2 = ((MyApplication)getApplication()).getSharedPreference("password","password").toString();
+////                            Integer s = (Integer) ((MyApplication)getApplication()).getSharedPreference("role",role);
+//
+//                            if (role == 1){
+//
+//                                Intent intent = new Intent(LoginActivity.this,TeacherMainActivity.class);
+//                                startActivity(intent);
+//                                return;
+//                            }
+//
+//                            if (role == 2){
+//                                Intent intent = new Intent(LoginActivity.this,FamilyMainActivity.class);
+//                                startActivity(intent);
+//                                return;
+//                            }
+//                        }else {
+//                            Looper.prepare();
+//                            MyToastUtil.showLongToast(LoginActivity.this,msg);
+////                            Toast.makeText(LoginActivity.this,msg,Toast.LENGTH_LONG).show();
+//                            Looper.loop();
+//                        }
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
                 }
             });
+
+            for(int i = 0; i<100; i++){
+                try {
+                    Thread.sleep(500L);
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+                publishProgress(i);
+            }
             return null;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            login_tv.setText("登录成功！");
+            super.onPostExecute(result);
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            progressBar.setProgress(values[0]);
+            login_tv.setText("登录中" + values[0] + "%");
+            super.onProgressUpdate(values);
         }
     }
 
@@ -142,6 +215,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         login_tv_forget = (TextView) findViewById(R.id.login_tv_forget);
         login_et_account = (EditText) findViewById(R.id.login_et_account);
         login_et_password = (EditText) findViewById(R.id.login_et_password);
+        login_tv = (TextView) findViewById(R.id.login_tv);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+
 
         login_btn_login.setOnClickListener(this);
         login_tv_forget.setOnClickListener(this);
@@ -158,14 +234,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 String account = login_et_account.getText().toString();
                 String password = login_et_password.getText().toString();
 
-                if(StringUtil.size(account) || StringUtil.init(account)){
-                    MyToastUtil.message("帐号不能为空");
+                if(StringUtil.isNullOrEmpty(account)){
+                    MyToastUtil.showLongToast(LoginActivity.this,"帐号不能为空");
 //                    Toast.makeText(LoginActivity.this,"帐号不能为空",Toast.LENGTH_LONG).show();
                     return;
                 }
 
-                if(StringUtil.init(password) || StringUtil.size(password)){
-                    MyToastUtil.message("密码不能为空");
+                if(StringUtil.isNullOrEmpty(password)){
+                    MyToastUtil.showLongToast(LoginActivity.this,"密码不能为空");
 //                    Toast.makeText(LoginActivity.this,"密码不能为空",Toast.LENGTH_LONG).show();
                     return;
                 }
@@ -283,8 +359,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.login_tv_forget:
-//                Intent intent = new Intent(LoginActivity.this,ResetPasswordActivity.class);
-//                startActivity(intent);
+                Intent intent = new Intent(LoginActivity.this,ResetPasswordActivity.class);
+                startActivity(intent);
                 break;
         }
     }

@@ -1,14 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg"
     tools:context="com.aloogn.view.fragment.MyFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/my_imageView_top"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="我的" />
+        android:layout_height="200dp"
+        android:background="@mipmap/yuedu"/>
 
-</FrameLayout>
+    <LinearLayout
+        style="@style/MyFragment_LinearLayout">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/my_circleImageView"
+            style="@style/CircleImageView"/>
+
+        <TextView
+            android:id="@+id/my_tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="姓名"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"/>
+
+        <ImageView
+            android:id="@+id/my_imageView_into"
+            style="@style/MyFragment_ImageView_enter"
+            android:layout_marginLeft="200dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_useHelp"
+        style="@style/MyFragment_LinearLayout">
+
+        <ImageView
+            style="@style/MyFragment_ImageView_icon"
+            android:background="@mipmap/use_help"/>
+
+        <TextView
+            style="@style/MyFragment_TextView"
+            android:text="使用帮助"/>
+
+        <ImageView
+            android:id="@+id/my_imageView_useHelp"
+            style="@style/MyFragment_ImageView_enter"
+            android:layout_marginLeft="185dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_versionInformation"
+        style="@style/MyFragment_LinearLayout">
+
+        <ImageView
+            style="@style/MyFragment_ImageView_icon"
+            android:background="@mipmap/version_information"/>
+
+        <TextView
+            style="@style/MyFragment_TextView"
+            android:text="版本说明"/>
+
+        <ImageView
+            android:id="@+id/my_imageView_versionInformation"
+            style="@style/MyFragment_ImageView_enter"
+            android:layout_marginLeft="185dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_updatePassword"
+        style="@style/MyFragment_LinearLayout">
+
+        <ImageView
+            style="@style/MyFragment_ImageView_icon"
+            android:background="@mipmap/version_information"/>
+
+        <TextView
+            style="@style/MyFragment_TextView"
+            android:text="修改密码"/>
+
+        <ImageView
+            android:id="@+id/my_imageView_updatePassword"
+            style="@style/MyFragment_ImageView_enter"
+            android:layout_marginLeft="185dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout_returnLogin"
+        style="@style/MyFragment_LinearLayout">
+
+        <ImageView
+            style="@style/MyFragment_ImageView_icon"
+            android:background="@mipmap/return_login"/>
+
+        <TextView
+            android:id="@+id/my_tv_returnLogin"
+            android:text="退出登录"
+            style="@style/MyFragment_TextView"/>
+    </LinearLayout>
+
+
+</LinearLayout>

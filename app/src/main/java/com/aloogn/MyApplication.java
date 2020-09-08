@@ -33,16 +33,24 @@ public class MyApplication extends Application{
 
 
     //保存
-    public void putSharedPreference(String key, Object object) {
+    public void put(String key, Object object) {
         if (object instanceof String) {
             editor.putString(key, (String) object);
-        } else if (object instanceof Integer) {
+        }
+
+        if (object instanceof Integer) {
             editor.putInt(key, (Integer) object);
-        } else if (object instanceof Boolean) {
+        }
+
+        if (object instanceof Boolean) {
             editor.putBoolean(key, (Boolean) object);
-        } else if (object instanceof Float) {
+        }
+
+        if (object instanceof Float) {
             editor.putFloat(key, (Float) object);
-        } else if (object instanceof Long) {
+        }
+
+        if (object instanceof Long) {
             editor.putLong(key, (Long) object);
         } else {
             editor.putString(key, object.toString());
@@ -51,7 +59,7 @@ public class MyApplication extends Application{
     }
 
     //读取
-    public Object getSharedPreference(String key, Object defaultObject) {
+    public Object get(String key, Object defaultObject) {
         if (defaultObject instanceof String) {
             return sharedPreferences.getString(key, (String) defaultObject);
         }

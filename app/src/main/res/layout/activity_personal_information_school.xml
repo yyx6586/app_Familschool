@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg"
+    tools:context="com.aloogn.view.PersonalInformationSchoolActivity">
+
+    <com.aloogn.view.common.TitleLayout
+        android:id="@+id/ManualBinding_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.aloogn.view.common.TitleLayout>
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fadingEdge="vertical">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        style="@style/PersonalInformation_LinearLayout_out"
+        android:background="@drawable/linearlayout_underline">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/linearlayout_underline">
+
+            <TextView
+                style="@style/PersonalInformation_textView"
+                android:text="头像"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/personalInformation_circleImageView"
+                style="@style/CircleImageView"
+                android:layout_marginLeft="230dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/PersonalInformation_LinearLayout_in"
+            android:background="@drawable/linearlayout_underline">
+
+            <TextView
+                style="@style/PersonalInformation_textView"
+                android:text="工号"/>
+
+            <EditText
+                android:id="@+id/personalInformation_et_jobNumber"
+                style="@style/PersonalInformation_editView"
+                android:layout_marginLeft="90dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/PersonalInformation_LinearLayout_in"
+            android:background="@drawable/linearlayout_underline">
+
+            <TextView
+                style="@style/PersonalInformation_textView"
+                android:text="姓名"/>
+
+            <EditText
+                android:id="@+id/personalInformation_et_teacherName"
+                style="@style/PersonalInformation_editView"
+                android:layout_marginLeft="90dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/PersonalInformation_LinearLayout_out"
+        android:background="@drawable/linearlayout_underline"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            style="@style/PersonalInformation_LinearLayout_in"
+            android:background="@drawable/linearlayout_underline">
+
+            <TextView
+                style="@style/PersonalInformation_textView"
+                android:text="密码" />
+
+            <EditText
+                android:id="@+id/personalInformation_et_password"
+                style="@style/PersonalInformation_editView"
+                android:layout_marginLeft="90dp"
+                android:hint="请输入原来的密码"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/PersonalInformation_LinearLayout_in"
+            android:background="@drawable/linearlayout_underline">
+
+            <TextView
+                style="@style/PersonalInformation_textView"
+                android:text="重置密码" />
+
+            <EditText
+                android:id="@+id/personalInformation_et_resetPassword"
+                style="@style/PersonalInformation_editView"
+                android:layout_marginLeft="50dp"
+                android:hint="请输入新密码"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/PersonalInformation_LinearLayout_in"
+            android:background="@drawable/linearlayout_underline">
+
+            <TextView
+                style="@style/PersonalInformation_textView"
+                android:text="确认密码" />
+
+            <EditText
+                android:id="@+id/personalInformation_et_confirmPassword"
+                style="@style/PersonalInformation_editView"
+                android:layout_marginLeft="50dp"
+                android:hint="请重新输入新密码"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/PersonalInformation_LinearLayout_out"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/linearlayout_underline">
+
+        <LinearLayout
+            style="@style/PersonalInformation_LinearLayout_in"
+            android:background="@drawable/linearlayout_underline">
+
+            <TextView
+                style="@style/PersonalInformation_textView"
+                android:text="手机号" />
+
+            <EditText
+                android:id="@+id/personalInformation_et_phone"
+                style="@style/PersonalInformation_editView"
+                android:layout_marginLeft="72dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/PersonalInformation_LinearLayout_out"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/linearlayout_underline">
+
+        <LinearLayout
+            style="@style/PersonalInformation_LinearLayout_in"
+            android:background="@drawable/linearlayout_underline">
+
+            <TextView
+                style="@style/PersonalInformation_textView"
+                android:text="科目" />
+
+            <Spinner
+                android:id="@+id/personalInformation_spinner_subject"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="90dp"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/personalInformation_btn_save"
+        android:text="保存"
+        style="@style/PersonalInformation_button"/>
+    </LinearLayout>
+</ScrollView>
+</LinearLayout>

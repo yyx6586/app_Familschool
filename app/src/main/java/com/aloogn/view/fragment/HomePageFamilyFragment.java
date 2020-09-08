@@ -1,18 +1,31 @@
 package com.aloogn.view.fragment;
 
 
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.aloogn.famil_school.R;
+import com.aloogn.view.AchievementFamilyActivity;
+import com.aloogn.view.AddressBookActivity;
+import com.aloogn.view.GrowRecordFamilyActivity;
+import com.aloogn.view.HomeworkFamilyActivity;
+import com.aloogn.view.NoticeFamilyActivity;
+import com.aloogn.view.PersonalInformationFamilyActivity;
+import com.aloogn.view.adapter.HomeGridViewAdpater;
 import com.aloogn.view.adapter.HomePageAdpater;
 
 import java.util.ArrayList;
@@ -23,11 +36,17 @@ import java.util.List;
  */
 public class HomePageFamilyFragment extends Fragment {
 
-    ViewPager home_family_viewPager;
-    LinearLayout home_family_linearLayout;
+    private GridView homePageFamily_gridView;
+    private ViewPager home_family_viewPager;
+    private LinearLayout home_family_linearLayout;
+
+    private int[] images = {R.mipmap.tongzhi, R.mipmap.zuoye, R.mipmap.chengji,R.mipmap.jilu,
+                            R.mipmap.tongxunlu};
+
+    private String [] text = {"通知", "作业", "成绩", "成长记录", "通讯录"};
 
     //声明数组图片
-    int[] imgIds = {R.mipmap.timg,R.mipmap.yuedu,R.mipmap.find};
+    int[] imgIds = {R.mipmap.timg, R.mipmap.yuedu, R.mipmap.find};
     //声明 ViewPager 的数据源
     List<ImageView> imageViewList;
     //声明管理指示器小圆点的集合
@@ -46,7 +65,7 @@ public class HomePageFamilyFragment extends Fragment {
                     home_family_viewPager.setCurrentItem(currentItem);
                 }
                 //形成循环发送，接收信息的效果，在接收信息的同时，也要进行信息的发送
-                handler.sendEmptyMessageDelayed(1,5000);
+                handler.sendEmptyMessageDelayed(1,4000);
             }
 
         }
@@ -69,6 +88,37 @@ public class HomePageFamilyFragment extends Fragment {
         handler.sendEmptyMessageDelayed(1,5000);
         return view;
 
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        homePageFamily_gridView = getActivity().findViewById(R.id.homePageFamily_gridView);
+        homePageFamily_gridView.setAdapter(new HomeGridViewAdpater(getContext(), images, text));
+        homePageFamily_gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
+
+        homePageFamily_gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 0:
+                        startActivity(new Intent(getActivity(), NoticeFamilyActivity.class));
+                        break;
+                    case 1:
+                        startActivity(new Intent(getActivity(), HomeworkFamilyActivity.class));
+                        break;
+                    case 2:
+                        startActivity(new Intent(getActivity(), AchievementFamilyActivity.class));
+                        break;
+                    case 3:
+                        startActivity(new Intent(getActivity(), GrowRecordFamilyActivity.class));
+                        break;
+                    case 4:
+                        startActivity(new Intent(getActivity(), AddressBookActivity.class));
+                        break;
+                }
+            }
+        });
     }
 
     //设置 ViewPager 显示的页面
@@ -128,6 +178,7 @@ public class HomePageFamilyFragment extends Fragment {
 
     //初始化控件
     private void initView(View view){
+        homePageFamily_gridView = view.findViewById(R.id.homePageFamily_gridView);
         home_family_viewPager = view.findViewById(R.id.home_family_viewPager);
         home_family_linearLayout = view.findViewById(R.id.home_family_linearLayout);
     }

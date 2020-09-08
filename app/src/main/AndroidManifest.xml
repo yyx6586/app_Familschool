@@ -13,24 +13,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-
-        <activity android:name="com.aloogn.view.LoginActivity">
+        <activity android:name="com.aloogn.view.LoginActivity" />
+        <activity android:name="com.aloogn.view.TeacherMainActivity" />
+        <activity android:name="com.aloogn.view.ResetPasswordActivity" />
+        <activity android:name="com.aloogn.view.FamilyMainActivity" />
+        <activity android:name="com.aloogn.view.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.aloogn.view.TeacherMainActivity" />
-        <activity android:name="com.aloogn.view.ResetPasswordActivity" >
-        </activity>
-        <activity android:name="com.aloogn.view.FamilyMainActivity"></activity>
-
-        <!--<application-->
-            <!--android:name="com.aloogn.util.SharedPreferencesUtil"-->
-            <!--android:icon="@mipmap/ic_launcher"-->
-            <!--android:label="@string/app_name"/>-->
-
+        <activity android:name="com.aloogn.view.PersonalInformationFamilyActivity" />
+        <activity android:name="com.aloogn.view.PersonalInformationSchoolActivity" />
+        <activity android:name="com.aloogn.view.NoticeFamilyActivity" />
+        <activity android:name="com.aloogn.view.HomeworkFamilyActivity" />
+        <activity android:name="com.aloogn.view.AchievementFamilyActivity" />
+        <activity android:name="com.aloogn.view.GrowRecordFamilyActivity" />
+        <activity android:name="com.aloogn.view.AddressBookActivity" />
+        <activity android:name="com.aloogn.view.UpdatePasswordActivity"></activity>
     </application>
 
 </manifest>

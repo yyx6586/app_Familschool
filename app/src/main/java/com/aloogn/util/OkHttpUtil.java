@@ -15,7 +15,7 @@ import okhttp3.Request;
  */
 public class OkHttpUtil {
 
-    String url = "http://10.0.2.2:8080//";
+    String url = "http://10.0.2.2:8080/";
 
     OkHttpClient okHttpClient = new OkHttpClient();
 
@@ -35,7 +35,7 @@ public class OkHttpUtil {
         return instance;
     }
 
-    public Call post(String api, Map<String,Object> map) {
+    public Call post(String api, Map<String,Object> map, String token) {
 
         FormBody.Builder builder = new FormBody.Builder();
         if(map != null && map.size() > 0){
@@ -45,10 +45,20 @@ public class OkHttpUtil {
         }
 
         FormBody formBody = builder.build();
-        Request request = new Request.Builder()
-                .url(url+api)
-                .post(formBody)
-                .build();
+        Request request = null;
+        if(null == token){
+            request = new Request.Builder()
+                    .url(url+api)
+                    .post(formBody)
+                    .build();
+        }else{
+            request = new Request.Builder()
+                    .url(url+api)
+                    .addHeader("token",token)
+                    .post(formBody)
+                    .build();
+        }
+
 
 
 //        Request.Builder builder=new Request.Builder();

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg"
+    tools:context="com.aloogn.view.PersonalInformationFamilyActivity">
+
+    <com.aloogn.view.common.TitleLayout
+        android:id="@+id/ManualBinding_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.aloogn.view.common.TitleLayout>
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fadingEdge="vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        style="@style/PersonalInformation_LinearLayout_out"
+        android:background="@drawable/linearlayout_underline">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/linearlayout_underline">
+
+            <TextView
+                style="@style/PersonalInformation_textView"
+                android:text="头像"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/personalInformation_circleImageView"
+                style="@style/CircleImageView"
+                android:layout_marginLeft="230dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/PersonalInformation_LinearLayout_in"
+            android:background="@drawable/linearlayout_underline">
+
+            <TextView
+                style="@style/PersonalInformation_textView"
+                android:text="学号"/>
+
+            <EditText
+                android:id="@+id/personalInformation_et_studentNumber"
+                style="@style/PersonalInformation_editView"
+                android:layout_marginLeft="90dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/PersonalInformation_LinearLayout_in"
+            android:background="@drawable/linearlayout_underline">
+
+            <TextView
+                style="@style/PersonalInformation_textView"
+                android:text="学生姓名"/>
+
+            <EditText
+                android:id="@+id/personalInformation_et_studentName"
+                style="@style/PersonalInformation_editView"
+                android:layout_marginLeft="50dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/PersonalInformation_LinearLayout_in"
+            android:background="@drawable/linearlayout_underline">
+
+            <TextView
+                style="@style/PersonalInformation_textView"
+                android:text="学生性别" />
+
+            <EditText
+                android:id="@+id/personalInformation_et_studentSex"
+                style="@style/PersonalInformation_editView"
+                android:layout_marginLeft="50dp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/PersonalInformation_LinearLayout_out"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/linearlayout_underline">
+
+        <LinearLayout
+            style="@style/PersonalInformation_LinearLayout_in"
+            android:background="@drawable/linearlayout_underline">
+
+            <TextView
+                style="@style/PersonalInformation_textView"
+                android:text="家长姓名"/>
+
+            <EditText
+                android:id="@+id/personalInformation_et_parentName"
+                style="@style/PersonalInformation_editView"
+                android:layout_marginLeft="50dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/PersonalInformation_LinearLayout_in"
+            android:background="@drawable/linearlayout_underline">
+
+            <TextView
+                style="@style/PersonalInformation_textView"
+                android:text="家长手机号" />
+
+            <EditText
+                android:id="@+id/personalInformation_et_parentPhone"
+                style="@style/PersonalInformation_editView"
+                android:layout_marginLeft="32dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/personalInformation_btn_save"
+        android:text="保存"
+        style="@style/PersonalInformation_button"/>
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>
