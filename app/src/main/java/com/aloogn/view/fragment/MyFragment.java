@@ -17,6 +17,7 @@ import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -43,6 +44,8 @@ public class MyFragment extends Fragment{
     private LinearLayout linearLayout_useHelp, linearLayout_versionInformation, linearLayout_updatePassword, linearLayout_returnLogin;
     private CircleImageView my_circleImageView;
     private File picture;
+    private TextView my_tv_name;
+    private String name;
 
 
     public MyFragment() {
@@ -55,6 +58,9 @@ public class MyFragment extends Fragment{
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_my, container, false);
+
+//        my_tv_name = view.findViewById(R.id.my_tv_name);
+//        my_tv_name.setText(name);
         return view;
     }
 
@@ -62,13 +68,10 @@ public class MyFragment extends Fragment{
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        my_imageView_into = (ImageView) getActivity().findViewById(R.id.my_imageView_into);
-        linearLayout_useHelp = (LinearLayout) getActivity().findViewById(R.id.linearLayout_useHelp);
-        linearLayout_versionInformation = (LinearLayout) getActivity().findViewById(R.id.linearLayout_versionInformation);
-        linearLayout_updatePassword = (LinearLayout) getActivity().findViewById(R.id.linearLayout_updatePassword);
-        linearLayout_returnLogin = (LinearLayout) getActivity().findViewById(R.id.linearLayout_returnLogin);
-        my_circleImageView = (CircleImageView) getActivity().findViewById(R.id.my_circleImageView);
-        
+        init();
+
+//        name = (String) ((MyApplication)getActivity().getApplication()).get("name",null);
+
         my_circleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,8 +82,7 @@ public class MyFragment extends Fragment{
         my_imageView_into.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Integer role;
-                role = Integer.parseInt(String.valueOf(((MyApplication)getActivity().getApplication()).get("role",null)));
+                Integer role = Integer.parseInt(String.valueOf(((MyApplication)getActivity().getApplication()).get("role",null)));
 
                 if(role == 1){
                     startActivity(new Intent(getActivity(), PersonalInformationSchoolActivity.class));
@@ -189,5 +191,13 @@ public class MyFragment extends Fragment{
                 e.printStackTrace();
             }
         }
+    }
+    public void init(){
+        my_imageView_into = (ImageView) getActivity().findViewById(R.id.my_imageView_into);
+        linearLayout_useHelp = (LinearLayout) getActivity().findViewById(R.id.linearLayout_useHelp);
+        linearLayout_versionInformation = (LinearLayout) getActivity().findViewById(R.id.linearLayout_versionInformation);
+        linearLayout_updatePassword = (LinearLayout) getActivity().findViewById(R.id.linearLayout_updatePassword);
+        linearLayout_returnLogin = (LinearLayout) getActivity().findViewById(R.id.linearLayout_returnLogin);
+        my_circleImageView = (CircleImageView) getActivity().findViewById(R.id.my_circleImageView);
     }
 }

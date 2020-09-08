@@ -115,6 +115,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             ((MyApplication)getApplication()).put("account",account);
                             ((MyApplication)getApplication()).put("password",MD5Util.md5(password));
                             ((MyApplication)getApplication()).put("role",role);
+                            ((MyApplication)getApplication()).put("name",name);
                             ((MyApplication)getApplication()).put("token",token);
 
                             if (role == 1){

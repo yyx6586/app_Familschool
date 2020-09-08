@@ -77,14 +77,19 @@ public class UpdatePasswordActivity extends AppCompatActivity implements View.On
 
                         JSONObject jsonObject = new JSONObject(str);
                         int code = (int) jsonObject.optInt("code");
-                        String msg = (String) jsonObject.optString("msg");
+                        final String msg = (String) jsonObject.optString("msg");
+
+//                        if(code == 401){
+//                            startActivity(new Intent(UpdatePasswordActivity.this,LoginActivity.class));
+//                            return;
+//                        }
 
                         if(code == 1){
                             ((MyApplication)getApplication()).remove("password");
                             ((MyApplication)getApplication()).put("password",resetPassword);
-//                            Looper.prepare();
-//                            MyToastUtil.showLongToast(UpdatePasswordActivity.this,msg);
-//                            Looper.loop();
+                            Looper.prepare();
+                            MyToastUtil.showLongToast(UpdatePasswordActivity.this,msg);
+                            Looper.loop();
                         }else {
                             Looper.prepare();
                             MyToastUtil.showLongToast(UpdatePasswordActivity.this,msg);
@@ -160,7 +165,6 @@ public class UpdatePasswordActivity extends AppCompatActivity implements View.On
                 }
                 MyTask myTask = new MyTask(account,password,resetPassword,token);
                 myTask.execute();
-                returnLogin();
                 break;
         }
     }
@@ -175,20 +179,29 @@ public class UpdatePasswordActivity extends AppCompatActivity implements View.On
 //    }
 
     private void returnLogin(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("密码修改成功");
-        builder.setMessage("请返回登录");
-        builder.setPositiveButton("返回登录", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Button positiveButton = ((AlertDialog)dialog).getButton(AlertDialog.BUTTON_POSITIVE);
-                positiveButton.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(UpdatePasswordActivity.this,LoginActivity.class));
-                    }
-                });
-            }
-        });
+//        final String font = "登录";
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//        builder.setMessage("密码修改成功，请返回重新");
+//        builder.setPositiveButton("登录", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                dialog.dismiss();
+//                startActivity(new Intent(UpdatePasswordActivity.this,LoginActivity.class));
+//            }
+//        }).create().show();
+//        builder.setTitle("密码修改成功");
+//        builder.setMessage("请返回登录");
+//        builder.setPositiveButton("返回登录", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                Button positiveButton = ((AlertDialog)dialog).getButton(AlertDialog.BUTTON_POSITIVE);
+//                positiveButton.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        startActivity(new Intent(UpdatePasswordActivity.this,LoginActivity.class));
+//                    }
+//                });
+//            }
+//        });
     }
     }
