@@ -48,7 +48,8 @@ public class PersonalInformationFamilyActivity extends AppCompatActivity impleme
     private TextView mTitle;
     private Button personalInformation_btn_save;
     private EditText personalInformation_et_studentNumber, personalInformation_et_studentName, personalInformation_et_studentSex,
-            personalInformation_et_parentName, personalInformation_et_parentPhone;
+            personalInformation_et_parentName, personalInformation_et_parentPhone, personalInformation_et_parentQQ,
+            personalInformation_et_parentWechat, personalInformation_et_parentEmail;
     private CircleImageView personalInformation_circleImageView;
     private File picture;
 
@@ -59,13 +60,19 @@ public class PersonalInformationFamilyActivity extends AppCompatActivity impleme
         private String studentSex;
         private String parentName;
         private String parentPhone;
+        private String parentQQ;
+        private String parentWechat;
+        private String email;
 
-        public MyTask(String account, String studentName, String studentSex, String parentName, String parentPhone) {
+        public MyTask(String account, String studentName, String studentSex, String parentName, String parentPhone, String parentQQ, String parentWechat, String email) {
             this.account = account;
             this.studentName = studentName;
             this.studentSex = studentSex;
             this.parentName = parentName;
             this.parentPhone = parentPhone;
+            this.parentQQ = parentQQ;
+            this.parentWechat = parentWechat;
+            this.email = email;
         }
 
         @Override
@@ -76,6 +83,9 @@ public class PersonalInformationFamilyActivity extends AppCompatActivity impleme
             map.put("studentSex",studentSex);
             map.put("parentName",parentName);
             map.put("parentPhone",parentPhone);
+            map.put("parentQQ",parentQQ);
+            map.put("parentWechat", parentWechat);
+            map.put("email", email);
 
             String token = (String) ((MyApplication)getApplication()).get("token",null);
 
@@ -96,7 +106,7 @@ public class PersonalInformationFamilyActivity extends AppCompatActivity impleme
 
                         Looper.prepare();
                         MyToastUtil.showLongToast(PersonalInformationFamilyActivity.this,msg);
-                        Looper.loop();;
+                        Looper.loop();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -135,6 +145,9 @@ public class PersonalInformationFamilyActivity extends AppCompatActivity impleme
                 String studentSex = personalInformation_et_studentSex.getText().toString();
                 String parentName = personalInformation_et_parentName.getText().toString();
                 String parentPhone = personalInformation_et_parentPhone.getText().toString();
+                String parentQQ = personalInformation_et_parentQQ.getText().toString();
+                String parentWechat = personalInformation_et_parentWechat.getText().toString();
+                String email = personalInformation_et_parentEmail.getText().toString();
 
                 if(StringUtil.isNullOrEmpty(studentName)){
                     MyToastUtil.showLongToast(PersonalInformationFamilyActivity.this,"学生姓名不能为空");
@@ -161,7 +174,7 @@ public class PersonalInformationFamilyActivity extends AppCompatActivity impleme
                     return;
                 }
 
-                MyTask myTask = new MyTask(account,studentName,studentSex,parentName,parentPhone);
+                MyTask myTask = new MyTask(account,studentName,studentSex,parentName,parentPhone,parentQQ,parentWechat,email);
                 myTask.execute();
 
                 break;
@@ -247,6 +260,9 @@ public class PersonalInformationFamilyActivity extends AppCompatActivity impleme
         personalInformation_et_studentSex = (EditText) findViewById(R.id.personalInformation_et_studentSex);
         personalInformation_et_parentName = (EditText) findViewById(R.id.personalInformation_et_parentName);
         personalInformation_et_parentPhone = (EditText) findViewById(R.id.personalInformation_et_parentPhone);
+        personalInformation_et_parentQQ = (EditText) findViewById(R.id.personalInformation_et_parentQQ);
+        personalInformation_et_parentWechat = (EditText) findViewById(R.id.personalInformation_et_parentWechat);
+        personalInformation_et_parentEmail = (EditText) findViewById(R.id.personalInformation_et_parentEmail);
         personalInformation_btn_save = (Button) findViewById(R.id.personalInformation_btn_save);
         personalInformation_circleImageView = (CircleImageView) findViewById(R.id.personalInformation_circleImageView);
     }

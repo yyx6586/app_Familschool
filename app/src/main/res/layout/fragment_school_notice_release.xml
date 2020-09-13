@@ -1,13 +1,27 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.aloogn.view.fragment.SchoolNoticeReleaseFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <EditText
+        android:id="@+id/fragmentSchoolNoticeRelease"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:hint="请点击进行信息编辑"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:layout_above="@id/fragmentSchoolNoticeRelease_btn"/>
 
-</FrameLayout>
+    <Button
+        android:id="@+id/fragmentSchoolNoticeRelease_btn"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:text="发布"
+        android:textSize="30sp"
+        android:background="@color/bg"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

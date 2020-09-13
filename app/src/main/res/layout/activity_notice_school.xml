@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.aloogn.view.NoticeSchoolActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <com.aloogn.view.common.TitleLayout
+        android:id="@+id/ManualBinding_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true">
+    </com.aloogn.view.common.TitleLayout>
+
+    <LinearLayout
+        android:id="@+id/noticeSchool_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/ManualBinding_title">
+    </LinearLayout>
+
+</RelativeLayout>

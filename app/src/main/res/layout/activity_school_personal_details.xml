@@ -1,9 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.aloogn.view.SchoolPersonalDetailsActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <com.aloogn.view.common.TitleLayout
+        android:id="@+id/ManualBinding_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.aloogn.view.common.TitleLayout>
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fadingEdge="vertical">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                style="@style/PersonalInformation_LinearLayout_out"
+                android:background="@drawable/linearlayout_underline">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/linearlayout_underline">
+
+                    <TextView
+                        style="@style/PersonalInformation_textView"
+                        android:text="头像"/>
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/personalInformation_circleImageView"
+                        style="@style/CircleImageView"
+                        android:layout_marginLeft="190dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/PersonalInformation_LinearLayout_in"
+                    android:background="@drawable/linearlayout_underline">
+
+                    <TextView
+                        style="@style/PersonalInformation_textView"
+                        android:text="工号"/>
+
+                    <TextView
+                        android:id="@+id/schoolPersonalDetails_tv_teacherNumber"
+                        style="@style/PersonalDetails_textView"
+                        android:layout_marginLeft="90dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/PersonalInformation_LinearLayout_in"
+                    android:background="@drawable/linearlayout_underline">
+
+                    <TextView
+                        style="@style/PersonalInformation_textView"
+                        android:text="教师姓名"/>
+
+                    <TextView
+                        android:id="@+id/schoolPersonalDetails_tv_teacherName"
+                        style="@style/PersonalDetails_textView"
+                        android:layout_marginLeft="50dp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/PersonalInformation_LinearLayout_in"
+                    android:background="@drawable/linearlayout_underline">
+
+                    <TextView
+                        style="@style/PersonalInformation_textView"
+                        android:text="教师性别" />
+
+                    <TextView
+                        android:id="@+id/schoolPersonalDetails_tv_teacherSex"
+                        style="@style/PersonalDetails_textView"
+                        android:layout_marginLeft="50dp"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/PersonalInformation_LinearLayout_out"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/linearlayout_underline">
+
+                <LinearLayout
+                    style="@style/PersonalInformation_LinearLayout_in"
+                    android:background="@drawable/linearlayout_underline">
+
+                    <TextView
+                        style="@style/PersonalInformation_textView"
+                        android:text="教师科目"/>
+
+                    <TextView
+                        android:id="@+id/schoolPersonalDetails_tv_teacherSubiect"
+                        style="@style/PersonalDetails_textView"
+                        android:layout_marginLeft="50dp"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/PersonalInformation_LinearLayout_out"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/linearlayout_underline">
+
+                <LinearLayout
+                    style="@style/PersonalInformation_LinearLayout_in"
+                    android:background="@drawable/linearlayout_underline">
+
+                    <TextView
+                        style="@style/PersonalInformation_textView"
+                        android:text="教师手机号" />
+
+                    <TextView
+                        android:id="@+id/schoolPersonalDetails_tv_teacherPhone"
+                        style="@style/PersonalDetails_textView"
+                        android:layout_marginLeft="32dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/PersonalInformation_LinearLayout_in"
+                    android:background="@drawable/linearlayout_underline">
+
+                    <TextView
+                        style="@style/PersonalInformation_textView"
+                        android:text="教师QQ" />
+
+                    <TextView
+                        android:id="@+id/schoolPersonalDetails_tv_teacherQQ"
+                        style="@style/PersonalDetails_textView"
+                        android:layout_marginLeft="50dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/PersonalInformation_LinearLayout_in"
+                    android:background="@drawable/linearlayout_underline">
+
+                    <TextView
+                        style="@style/PersonalInformation_textView"
+                        android:text="教师微信" />
+
+                    <TextView
+                        android:id="@+id/schoolPersonalDetails_tv_teacherWechat"
+                        style="@style/PersonalDetails_textView"
+                        android:layout_marginLeft="50dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@style/PersonalInformation_LinearLayout_in"
+                    android:background="@drawable/linearlayout_underline">
+
+                    <TextView
+                        style="@style/PersonalInformation_textView"
+                        android:text="教师邮箱" />
+
+                    <TextView
+                        android:id="@+id/schoolPersonalDetails_tv_teacherEmail"
+                        style="@style/PersonalDetails_textView"
+                        android:layout_marginLeft="50dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

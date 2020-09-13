@@ -128,6 +128,48 @@
                 style="@style/PersonalInformation_editView"
                 android:layout_marginLeft="32dp"/>
         </LinearLayout>
+
+        <LinearLayout
+            style="@style/PersonalInformation_LinearLayout_in"
+            android:background="@drawable/linearlayout_underline">
+
+            <TextView
+                style="@style/PersonalInformation_textView"
+                android:text="家长QQ" />
+
+            <EditText
+                android:id="@+id/personalInformation_et_parentQQ"
+                style="@style/PersonalInformation_editView"
+                android:layout_marginLeft="55dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/PersonalInformation_LinearLayout_in"
+            android:background="@drawable/linearlayout_underline">
+
+            <TextView
+                style="@style/PersonalInformation_textView"
+                android:text="家长微信" />
+
+            <EditText
+                android:id="@+id/personalInformation_et_parentWechat"
+                style="@style/PersonalInformation_editView"
+                android:layout_marginLeft="50dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/PersonalInformation_LinearLayout_in"
+            android:background="@drawable/linearlayout_underline">
+
+            <TextView
+                style="@style/PersonalInformation_textView"
+                android:text="家长邮箱" />
+
+            <EditText
+                android:id="@+id/personalInformation_et_parentEmail"
+                style="@style/PersonalInformation_editView"
+                android:layout_marginLeft="50dp"/>
+        </LinearLayout>
     </LinearLayout>
 
     <Button

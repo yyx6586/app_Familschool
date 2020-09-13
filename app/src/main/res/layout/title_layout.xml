@@ -29,6 +29,17 @@
             android:layout_marginLeft="100dp"
             android:layout_gravity="center_vertical"/>
 
+        <TextView
+            android:id="@+id/title_text_alreadyRelease"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已发布"
+            android:textSize="23sp"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:layout_marginLeft="65dp"
+            android:visibility="gone"/>
+
     </LinearLayout>
 
     <LinearLayout

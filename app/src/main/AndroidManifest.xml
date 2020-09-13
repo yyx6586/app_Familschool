@@ -31,7 +31,10 @@
         <activity android:name="com.aloogn.view.AchievementFamilyActivity" />
         <activity android:name="com.aloogn.view.GrowRecordFamilyActivity" />
         <activity android:name="com.aloogn.view.AddressBookActivity" />
-        <activity android:name="com.aloogn.view.UpdatePasswordActivity"></activity>
+        <activity android:name="com.aloogn.view.UpdatePasswordActivity" />
+        <activity android:name="com.aloogn.view.FamilyPersonalDetailsActivity" />
+        <activity android:name="com.aloogn.view.SchoolPersonalDetailsActivity" />
+        <activity android:name="com.aloogn.view.NoticeSchoolActivity"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package com.aloogn.view.fragment;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -19,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import com.aloogn.famil_school.R;
+import com.aloogn.view.AddressBookActivity;
 import com.aloogn.view.adapter.HomeGridViewAdpater;
 import com.aloogn.view.adapter.HomePageAdpater;
 
@@ -93,6 +96,16 @@ public class HomePageTeacherFragment extends Fragment {
         homePageTeacher_gridView.setAdapter(new HomeGridViewAdpater(getContext(), images, text));
         homePageTeacher_gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
+        homePageTeacher_gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 4:
+                        startActivity(new Intent(getActivity(), AddressBookActivity.class));
+                        break;
+                }
+            }
+        });
         spinner = (Spinner) getActivity().findViewById(R.id.homePageTeacher_spinner);
 
         ArrayAdapter adapter = new ArrayAdapter(getActivity(),R.layout.spinner_item,

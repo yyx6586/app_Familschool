@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/expandableListView_child_item"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-</LinearLayout>
+    android:layout_height="50dp"
+    android:background="@color/white"
+    android:gravity="left"
+    android:textSize="22sp"
+    android:paddingTop="8dp"
+    android:paddingLeft="40dp"
+    android:paddingBottom="8dp"
+    android:text="二级展示"/>

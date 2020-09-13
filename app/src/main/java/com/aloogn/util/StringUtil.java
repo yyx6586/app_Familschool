@@ -22,6 +22,13 @@ public class StringUtil {
         return str == null;
     }
 
+    public static boolean equalsNull(String str){
+        return "null".equals(str);
+    }
+
+    public  static boolean isNullOrEmptyOrEmptyNull(String str){
+        return isNullOrEmpty(str) || equalsNull(str);
+    }
     //是否是数字
     public static boolean isNumber(String str){
         Pattern pattern = Pattern.compile("[0-9]*");
