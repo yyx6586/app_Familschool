@@ -24,9 +24,8 @@ import com.aloogn.view.AddressBookActivity;
 import com.aloogn.view.GrowRecordFamilyActivity;
 import com.aloogn.view.HomeworkFamilyActivity;
 import com.aloogn.view.NoticeFamilyActivity;
-import com.aloogn.view.PersonalInformationFamilyActivity;
-import com.aloogn.view.adapter.HomeGridViewAdpater;
-import com.aloogn.view.adapter.HomePageAdpater;
+import com.aloogn.view.adapter.HomeGridViewAdapter;
+import com.aloogn.view.adapter.HomePageAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -94,7 +93,7 @@ public class HomePageFamilyFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         homePageFamily_gridView = getActivity().findViewById(R.id.homePageFamily_gridView);
-        homePageFamily_gridView.setAdapter(new HomeGridViewAdpater(getContext(), images, text));
+        homePageFamily_gridView.setAdapter(new HomeGridViewAdapter(getContext(), images, text));
         homePageFamily_gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
         homePageFamily_gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -156,7 +155,7 @@ public class HomePageFamilyFragment extends Fragment {
         //默认第一个小圆点是获取焦点的状态
         pointList.get(0).setImageResource(R.mipmap.point_focus);
         //设置适配器
-        HomePageAdpater homePageAdpater = new HomePageAdpater(getContext(),imageViewList);
+        HomePageAdapter homePageAdpater = new HomePageAdapter(getContext(),imageViewList);
         //设置给 View
         home_family_viewPager.setAdapter(homePageAdpater);
     }

@@ -13,12 +13,25 @@
         android:layout_alignParentTop="true">
     </com.aloogn.view.common.TitleLayout>
 
-    <LinearLayout
-        android:id="@+id/noticeSchool_ll"
+    <EditText
+        android:id="@+id/schoolNoticeRelease"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_below="@id/ManualBinding_title">
-    </LinearLayout>
+        android:hint="请点击进行信息编辑"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:background="@null"
+        android:layout_above="@id/schoolNoticeRelease_btn"
+        android:layout_below="@id/ManualBinding_title"/>
+
+    <Button
+        android:id="@+id/schoolNoticeRelease_btn"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:text="发布"
+        android:textSize="30sp"
+        android:background="@color/bg"
+        android:layout_alignParentBottom="true"/>
 
 </RelativeLayout>

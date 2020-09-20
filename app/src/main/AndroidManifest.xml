@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--suppress ALL -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.aloogn.famil_school">
 
@@ -34,7 +35,8 @@
         <activity android:name="com.aloogn.view.UpdatePasswordActivity" />
         <activity android:name="com.aloogn.view.FamilyPersonalDetailsActivity" />
         <activity android:name="com.aloogn.view.SchoolPersonalDetailsActivity" />
-        <activity android:name="com.aloogn.view.NoticeSchoolActivity"></activity>
+        <activity android:name="com.aloogn.view.NoticeSchoolActivity" />
+        <activity android:name="com.aloogn.view.NoticeSchoolAreledyActivity" />
     </application>
 
 </manifest>

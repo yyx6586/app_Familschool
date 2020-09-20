@@ -22,8 +22,9 @@ import android.widget.Spinner;
 
 import com.aloogn.famil_school.R;
 import com.aloogn.view.AddressBookActivity;
-import com.aloogn.view.adapter.HomeGridViewAdpater;
-import com.aloogn.view.adapter.HomePageAdpater;
+import com.aloogn.view.NoticeSchoolActivity;
+import com.aloogn.view.adapter.HomeGridViewAdapter;
+import com.aloogn.view.adapter.HomePageAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,13 +94,17 @@ public class HomePageTeacherFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         homePageTeacher_gridView = getActivity().findViewById(R.id.homePageTeacher_gridView);
-        homePageTeacher_gridView.setAdapter(new HomeGridViewAdpater(getContext(), images, text));
+        homePageTeacher_gridView.setAdapter(new HomeGridViewAdapter(getContext(), images, text));
         homePageTeacher_gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
 
         homePageTeacher_gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
+                    case 0:
+                        startActivity(new Intent(getActivity(), NoticeSchoolActivity.class));
+                        break;
+
                     case 4:
                         startActivity(new Intent(getActivity(), AddressBookActivity.class));
                         break;
@@ -148,7 +153,7 @@ public class HomePageTeacherFragment extends Fragment {
         //默认第一个小圆点是获取焦点的状态
         pointList.get(0).setImageResource(R.mipmap.point_focus);
         //设置适配器
-        HomePageAdpater homePageAdpater = new HomePageAdpater(getContext(),imageViewList);
+        HomePageAdapter homePageAdpater = new HomePageAdapter(getContext(),imageViewList);
         //设置给 View
         home_teacher_viewPager.setAdapter(homePageAdpater);
     }

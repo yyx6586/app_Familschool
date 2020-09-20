@@ -18,12 +18,12 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * date   : 2020/7/234:31 PM
  * desc   :
  */
-public class HomeGridViewAdpater extends BaseAdapter{
+public class HomeGridViewAdapter extends BaseAdapter{
 
     private LayoutInflater layoutInflater;
     private int[] images;
     private String[] text;
-    public HomeGridViewAdpater(Context context, int[] images, String[] text){
+    public HomeGridViewAdapter(Context context, int[] images, String[] text){
         this.images = images;
         this.text = text;
         layoutInflater = LayoutInflater.from(context);

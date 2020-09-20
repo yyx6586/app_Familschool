@@ -15,13 +15,13 @@ import java.util.List;
  * date   : 2020/7/67:43 PM
  * desc   :
  */
-public class HomePageAdpater extends PagerAdapter {
+public class HomePageAdapter extends PagerAdapter {
 
     Context context;
     //放置图片的集合
     List<ImageView> imageViewList;
 
-    public HomePageAdpater(Context context, List<ImageView> imageViewList) {
+    public HomePageAdapter(Context context, List<ImageView> imageViewList) {
         this.context = context;
         this.imageViewList = imageViewList;
     }

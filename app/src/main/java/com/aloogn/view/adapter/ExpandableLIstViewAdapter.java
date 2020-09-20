@@ -29,7 +29,8 @@ public class ExpandableLIstViewAdapter extends BaseExpandableListAdapter{
 
     @Override
     public int getGroupCount() {    //返回第一级List长度
-        return groupList.size();
+        //如果groupList 为空，返回0
+        return groupList == null ? 0 : groupList.size();
     }
 
     @Override
