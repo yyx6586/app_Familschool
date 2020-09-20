@@ -10,35 +10,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba3d91d2-9382-40e0-8f82-f28e0ca2c117" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/aloogn/view/NoticeSchoolAreledyActivity.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/aloogn/view/adapter/ListViewAdapter.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_notice_school_areledy.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/listview_item_layout.xml" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aloogn/view/NoticeSchoolActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aloogn/view/NoticeSchoolActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aloogn/view/adapter/ExpandableLIstViewAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aloogn/view/adapter/ExpandableLIstViewAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aloogn/view/adapter/HomeGridViewAdpater.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aloogn/view/adapter/HomeGridViewAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aloogn/view/adapter/HomePageAdpater.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aloogn/view/adapter/HomePageAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aloogn/view/fragment/HomePageFamilyFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aloogn/view/fragment/HomePageFamilyFragment.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aloogn/view/fragment/HomePageTeacherFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/aloogn/view/fragment/HomePageTeacherFragment.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aloogn/view/fragment/SchoolNoticeAlreadyFragment.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/aloogn/view/fragment/SchoolNoticeReleaseFragment.java" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_notice_school.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_notice_school.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_school_notice_already.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_school_notice_release.xml" afterPath="" />
-    </list>
+    <list default="true" id="ba3d91d2-9382-40e0-8f82-f28e0ca2c117" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -87,7 +59,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aloogn/view/NoticeSchoolAreledyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1650">
-              <caret line="162" column="23" lean-forward="true" selection-start-line="162" selection-start-column="23" selection-end-line="162" selection-end-column="23" />
+              <caret line="162" column="23" lean-forward="false" selection-start-line="162" selection-start-column="23" selection-end-line="162" selection-end-column="23" />
               <folding>
                 <element signature="e#1913#1914#0" expanded="true" />
                 <element signature="e#1959#1960#0" expanded="true" />
@@ -3107,7 +3079,7 @@
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/aloogn/view/NoticeSchoolAreledyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1650">
-          <caret line="162" column="23" lean-forward="true" selection-start-line="162" selection-start-column="23" selection-end-line="162" selection-end-column="23" />
+          <caret line="162" column="23" lean-forward="false" selection-start-line="162" selection-start-column="23" selection-end-line="162" selection-end-column="23" />
           <folding>
             <element signature="e#1913#1914#0" expanded="true" />
             <element signature="e#1959#1960#0" expanded="true" />
