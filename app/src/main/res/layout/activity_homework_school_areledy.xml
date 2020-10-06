@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.aloogn.view.NoticeFamilyActivity">
+    tools:context="com.aloogn.view.HomeworkSchoolAreledyActivity">
 
     <com.aloogn.view.common.TitleLayout
         android:id="@+id/ManualBinding_title"
@@ -16,9 +15,8 @@
     </com.aloogn.view.common.TitleLayout>
 
     <ListView
-        android:id="@+id/notice_family_listView"
+        android:id="@+id/homeworkSchoolAreledy_listView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"/>
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.aloogn.view.NticeActivity">
+
+    <com.aloogn.view.common.TitleLayout
+        android:id="@+id/ManualBinding_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.aloogn.view.common.TitleLayout>
+
+    <TextView
+        android:id="@+id/ntice_tv_time"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:paddingLeft="10dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"/>
+
+    <TextView
+        android:id="@+id/ntice_tv_information"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textSize="25sp"
+        android:textColor="@color/black"
+        android:paddingLeft="10dp"
+        android:background="@color/white"/>
+
+</LinearLayout>

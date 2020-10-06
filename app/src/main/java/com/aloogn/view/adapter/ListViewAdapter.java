@@ -20,11 +20,11 @@ import java.util.List;
 public class ListViewAdapter extends BaseAdapter{
 
     private final List<List<String>> mlist;
-    private final Context mContext;
+//    private final Context mContext;
 
-    public ListViewAdapter(List<List<String>> mlist, Context mContext) {
+    public ListViewAdapter(List<List<String>> mlist) {
         this.mlist = mlist;
-        this.mContext = mContext;
+//        this.mContext = mContext;
     }
 
     /**
@@ -68,7 +68,7 @@ public class ListViewAdapter extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
 
         //每一条 item 是如何显示的
-        convertView = LayoutInflater.from(mContext).inflate(R.layout.listview_item_layout, parent, false);
+        convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.listview_item_layout, parent, false);
 
 //        TextView textView = null;
 //        if(convertView == null){
@@ -80,8 +80,19 @@ public class ListViewAdapter extends BaseAdapter{
         //拿到一条数据
         TextView tv_information = convertView.findViewById(R.id.listView_tv_information);
         TextView tv_time = convertView.findViewById(R.id.listView_tv_time);
-        tv_information.setText(mlist.get(position).get(position));
-        tv_time.setText(mlist.get(position).get(position + 1));
+
+        tv_information.setText(mlist.get(position).get(0));
+        tv_time.setText(mlist.get(position).get(1));
+
+//        if(position == 0){
+//            tv_information.setText(mlist.get(position).get(position));
+//            tv_time.setText(mlist.get(position).get(position + 1));
+//        }else {
+//            tv_information.setText(mlist.get(position).get(mlist.get(position).size() - 2));
+//            tv_time.setText(mlist.get(position).get(mlist.get(position).size() - 1));
+//        }
+
+
 
 //        textView.setText(mlist.get(position));
 //        textView.setPadding(10,10,10,10);
