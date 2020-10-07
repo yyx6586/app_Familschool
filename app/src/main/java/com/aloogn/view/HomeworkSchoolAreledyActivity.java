@@ -129,8 +129,8 @@ public class HomeworkSchoolAreledyActivity extends AppCompatActivity {
 
                             if(grade_id.equals(grade_id1)){
                                 List<String> list = new ArrayList<>();
-                                list.add(dateTime);
                                 list.add(homework);
+                                list.add(dateTime);
                                 mlist.add(list);
                             }else {
                                 Looper.prepare();

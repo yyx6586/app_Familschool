@@ -4,6 +4,7 @@ package com.aloogn.view.fragment;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -17,8 +18,11 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.aloogn.MyApplication;
 import com.aloogn.famil_school.R;
+import com.aloogn.util.OkHttpUtil;
 import com.aloogn.view.AchievementFamilyActivity;
 import com.aloogn.view.AddressBookActivity;
 import com.aloogn.view.GrowRecordFamilyActivity;
@@ -27,17 +31,30 @@ import com.aloogn.view.NoticeFamilyActivity;
 import com.aloogn.view.adapter.HomeGridViewAdapter;
 import com.aloogn.view.adapter.HomePageAdapter;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class HomePageFamilyFragment extends Fragment {
 
+    private TextView home_family_class;
     private GridView homePageFamily_gridView;
     private ViewPager home_family_viewPager;
     private LinearLayout home_family_linearLayout;
+    private String account;
+    private String token;
 
     private int[] images = {R.mipmap.tongzhi, R.mipmap.zuoye, R.mipmap.chengji,R.mipmap.jilu,
                             R.mipmap.tongxunlu};
@@ -95,6 +112,15 @@ public class HomePageFamilyFragment extends Fragment {
         homePageFamily_gridView = getActivity().findViewById(R.id.homePageFamily_gridView);
         homePageFamily_gridView.setAdapter(new HomeGridViewAdapter(getContext(), images, text));
         homePageFamily_gridView.setSelector(new ColorDrawable(Color.TRANSPARENT));
+
+        //获取当前用户账号
+        account = (String) ((MyApplication)getActivity().getApplication()).get("account", null);
+
+        //获取 token
+        token = (String) ((MyApplication)getActivity().getApplication()).get("token", null);
+
+//        MyTask myTask = new MyTask(account);
+//        myTask.execute();
 
         homePageFamily_gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -180,6 +206,49 @@ public class HomePageFamilyFragment extends Fragment {
         homePageFamily_gridView = view.findViewById(R.id.homePageFamily_gridView);
         home_family_viewPager = view.findViewById(R.id.home_family_viewPager);
         home_family_linearLayout = view.findViewById(R.id.home_family_linearLayout);
+        home_family_class = view.findViewById(R.id.home_family_class);
     }
 
+//    protected class MyTask extends AsyncTask<String, Integer, String>{
+//
+//        private String account;
+//
+//        public MyTask(String account) {
+//            this.account = account;
+//        }
+
+//        @Override
+//        protected String doInBackground(String... strings) {
+//            Map<String, Object> map = new HashMap<>();
+//            map.put("account", account);
+//
+//            Call call = OkHttpUtil.getInstance().post("userGrade/userClass", map, token);
+//            call.enqueue(new Callback() {
+//                @Override
+//                public void onFailure(Call call, IOException e) {
+//
+//                }
+//
+//                @Override
+//                public void onResponse(Call call, Response response) throws IOException {
+//                    String str = response.body().string();
+//
+//                    try {
+//                        JSONObject jsonObject = new JSONObject(str);
+//                        String data = jsonObject.optString("data");
+//
+//                        JSONObject object = new JSONObject(data);
+//                        String grade_name = object.optString("grade_name");
+//                        String class_name = object.optString("class_name");
+//
+//                        home_family_class.setText(grade_name + class_name);
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+//
+//                }
+//            });
+//            return null;
+//        }
+//    }
 }

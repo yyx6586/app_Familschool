@@ -22,6 +22,7 @@ import android.widget.Spinner;
 
 import com.aloogn.famil_school.R;
 import com.aloogn.view.AddressBookActivity;
+import com.aloogn.view.HomeworkSchoolActivity;
 import com.aloogn.view.NoticeSchoolActivity;
 import com.aloogn.view.adapter.HomeGridViewAdapter;
 import com.aloogn.view.adapter.HomePageAdapter;
@@ -103,6 +104,10 @@ public class HomePageTeacherFragment extends Fragment {
                 switch (position){
                     case 0:
                         startActivity(new Intent(getActivity(), NoticeSchoolActivity.class));
+                        break;
+
+                    case 1:
+                        startActivity(new Intent(getActivity(), HomeworkSchoolActivity.class));
                         break;
 
                     case 4:

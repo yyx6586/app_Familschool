@@ -41,7 +41,8 @@
         <activity android:name="com.aloogn.view.HomeworkSchoolActivity" />
         <activity android:name="com.aloogn.view.HomeworkSchoolAreledyActivity" />
         <activity android:name="com.aloogn.view.HomeworkSchoolDetailsActivity" />
-        <activity android:name="com.aloogn.view.HomeworkFamilyDetailsActivity"></activity>
+        <activity android:name="com.aloogn.view.HomeworkFamilyDetailsActivity" />
+        <activity android:name="com.aloogn.view.FindPasswordActivity"></activity>
     </application>
 
 </manifest>

@@ -360,7 +360,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.login_tv_forget:
-                Intent intent = new Intent(LoginActivity.this,ResetPasswordActivity.class);
+                Intent intent = new Intent(LoginActivity.this,FindPasswordActivity.class);
                 startActivity(intent);
                 break;
         }

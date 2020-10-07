@@ -5,11 +5,9 @@ import android.os.AsyncTask;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.aloogn.famil_school.R;
 import com.aloogn.util.MD5Util;
@@ -23,39 +21,32 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.FormBody;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
 import okhttp3.Response;
 
-public class ResetPasswordActivity extends AppCompatActivity implements View.OnClickListener{
+public class FindPasswordActivity extends AppCompatActivity implements View.OnClickListener{
 
     private EditText reset_et_account;
     private EditText reset_et_name;
     private EditText reset_et_sex;
     private EditText reset_et_phone;
-    private EditText reset_et_password;
-    private EditText reset_et_resetPassword;
     private Button reset_btn_complete;
-    private String account, name, sex, phone, password, resetPassword;
+    private String account, name, sex, phone, password;
     private String token = null;
     private String password1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_reset_password);
+        setContentView(R.layout.activity_find_password);
 
         reset_et_account = (EditText) findViewById(R.id.reset_et_account);
         reset_et_name = (EditText) findViewById(R.id.reset_et_name);
         reset_et_sex = (EditText) findViewById(R.id.reset_et_sex);
         reset_et_phone = (EditText) findViewById(R.id.reset_et_phone);
-        reset_et_password = (EditText) findViewById(R.id.reset_et_password);
-        reset_et_resetPassword = (EditText) findViewById(R.id.reset_et_resetPassword);
         reset_btn_complete = (Button) findViewById(R.id.reset_btn_complete);
 
         reset_btn_complete.setOnClickListener(this);
@@ -69,48 +60,31 @@ public class ResetPasswordActivity extends AppCompatActivity implements View.OnC
                 name = reset_et_name.getText().toString();
                 sex = reset_et_sex.getText().toString();
                 phone = reset_et_phone.getText().toString();
-                password = reset_et_password.getText().toString();
-                resetPassword = reset_et_resetPassword.getText().toString();
 
                 if(StringUtil.isNullOrEmpty(account)){
-                    MyToastUtil.showLongToast(ResetPasswordActivity.this,"账号不能为空");
+                    MyToastUtil.showLongToast(FindPasswordActivity.this,"账号不能为空");
                     return;
                 }
 
                 if(StringUtil.isNullOrEmpty(name)){
-                    MyToastUtil.showLongToast(ResetPasswordActivity.this,"学生姓名不能为空");
+                    MyToastUtil.showLongToast(FindPasswordActivity.this,"学生姓名不能为空");
                     return;
                 }
 
                 if(StringUtil.isNullOrEmpty(sex)){
-                    MyToastUtil.showLongToast(ResetPasswordActivity.this,"学生性别不能为空");
+                    MyToastUtil.showLongToast(FindPasswordActivity.this,"学生性别不能为空");
                     return;
                 }
 
                 if(StringUtil.isNullOrEmpty(phone)){
-                    MyToastUtil.showLongToast(ResetPasswordActivity.this,"家长手机号码不能为空");
+                    MyToastUtil.showLongToast(FindPasswordActivity.this,"家长手机号码不能为空");
                     return;
                 }
 
                 if(!StringUtil.isPhone(phone)){
-                    MyToastUtil.showLongToast(ResetPasswordActivity.this,"请输入正确格式的手机号码");
+                    MyToastUtil.showLongToast(FindPasswordActivity.this,"请输入正确格式的手机号码");
                     return;
                 }
-
-//                if(StringUtil.isNullOrEmpty(password)){
-//                    MyToastUtil.showLongToast(ResetPasswordActivity.this,"密码不能为空");
-//                    return;
-//                }
-//
-//                if(StringUtil.isNullOrEmpty(resetPassword)){
-//                    MyToastUtil.showLongToast(ResetPasswordActivity.this,"请再次输入密码,不能为空");
-//                    return;
-//                }
-//
-//                if (!password.equals(resetPassword)){
-//                    MyToastUtil.showLongToast(ResetPasswordActivity.this,"两次输入密码不一样,请重新输入");
-//                    return;
-//                }
 
                 MyTask myTask = new MyTask(account);
                 myTask.execute();
@@ -120,7 +94,6 @@ public class ResetPasswordActivity extends AppCompatActivity implements View.OnC
                         .setMessage(password)//内容
                         .create();
                 alertDialog1.show();
-                break;
         }
     }
 
@@ -135,7 +108,7 @@ public class ResetPasswordActivity extends AppCompatActivity implements View.OnC
         @Override
         protected String doInBackground(String... strings) {
 
-            Map<String, Object> map = new HashMap<>();
+            Map<String,Object> map = new HashMap<>();
             map.put("account", account);
 
             Call call = OkHttpUtil.getInstance().post("user/findPassword", map, token);
@@ -148,7 +121,6 @@ public class ResetPasswordActivity extends AppCompatActivity implements View.OnC
                 @Override
                 public void onResponse(Call call, Response response) throws IOException {
                     String str = response.body().string();
-
                     try {
                         JSONObject jsonObject = new JSONObject(str);
                         String data = jsonObject.optString("data");
@@ -165,35 +137,35 @@ public class ResetPasswordActivity extends AppCompatActivity implements View.OnC
 
                         if(!account.equals(account1)){
                             Looper.prepare();
-                            MyToastUtil.showLongToast(ResetPasswordActivity.this,"该账号不存在，请重新输入");
+                            MyToastUtil.showLongToast(FindPasswordActivity.this,"该账号不存在，请重新输入");
                             Looper.loop();
                             return;
                         }
 
                         if(!name.equals(name1)){
                             Looper.prepare();
-                            MyToastUtil.showLongToast(ResetPasswordActivity.this,"学生姓名错误，请重新输入");
+                            MyToastUtil.showLongToast(FindPasswordActivity.this,"学生姓名错误，请重新输入");
                             Looper.loop();
                             return;
                         }
 
                         if(!sex.equals(sex1)){
                             Looper.prepare();
-                            MyToastUtil.showLongToast(ResetPasswordActivity.this,"学生姓名错误，请重新输入");
+                            MyToastUtil.showLongToast(FindPasswordActivity.this,"学生姓名错误，请重新输入");
                             Looper.loop();
                             return;
                         }
 
                         if(role == 1 && !phone.equals(user_phoe)){
                             Looper.prepare();
-                            MyToastUtil.showLongToast(ResetPasswordActivity.this,"用户手机号码错误，请重新输入");
+                            MyToastUtil.showLongToast(FindPasswordActivity.this,"用户手机号码错误，请重新输入");
                             Looper.loop();
                             return;
                         }
 
                         if(role == 2 && !phone.equals(parent_phone)){
                             Looper.prepare();
-                            MyToastUtil.showLongToast(ResetPasswordActivity.this,"家长手机号码错误，请重新输入");
+                            MyToastUtil.showLongToast(FindPasswordActivity.this,"家长手机号码错误，请重新输入");
                             Looper.loop();
                             return;
                         }
@@ -205,4 +177,5 @@ public class ResetPasswordActivity extends AppCompatActivity implements View.OnC
             return null;
         }
     }
+
 }
